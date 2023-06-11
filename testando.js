@@ -156,3 +156,100 @@
 //    return array  
 // }
 // console.log(revisao(colecao))
+
+
+//======================================================
+//objetos
+
+
+
+//08
+
+// let robo = {
+//     nome: `Zeta`,
+//     idade: 26,
+//     generoMusical: `rock nacional - clássico`
+// }
+// console.log(`O nome da pessoa é ${robo.nome}, ela(e) têm ${robo.idade} anos e gosta muito
+// de ${robo.generoMusical}.`);
+
+
+// let novoRobo = {
+//     ...robo, nome: `Simas`, altura: `280 cm`
+// }
+
+// console.log(`O nome da pessoa é ${novoRobo.nome}, ela(e) têm ${novoRobo.idade} anos e gosta muito
+// de ${novoRobo.generoMusical}. Sua altura agora é ${novoRobo.altura}.`);
+
+
+
+
+//======================================================
+//condicionais
+
+
+
+//09
+
+
+// let numeroDoUsuario = 12
+
+// if(numeroDoUsuario % 2 === 0){
+//     console.log(`O número ${numeroDoUsuario} é par.`);
+// }else{
+//     console.log(`O número ${numeroDoUsuario} é ímpar.`);
+// }
+
+
+//10
+
+
+
+// let animal1 = `Cachorro`
+
+// if(animal1 === `Gato`){
+//    console.log(`Miau`)
+// } else if (animal1 === `Vaca`){
+//    console.log(`Muuu`)
+// } else if (animal1 === `Cachorro`){
+//    console.log(`Au au`)
+// } else {
+//    console.log(`Sem barulho reconhecido`)
+// }
+
+// //======
+
+// let animal = `Zebra`
+
+// switch(animal){
+//     case `gato`:
+//         console.log(`Miau`);
+//         break
+//     case `Vaca`:
+//         console.log(`Muuu`);
+//         break
+//     case `Cachorro`:
+//         console.log(`Au au`);
+//         break
+//     default:
+//         console.log(`Sem barulho reconhecido`);
+//         break
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
