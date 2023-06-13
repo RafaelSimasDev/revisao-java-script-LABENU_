@@ -240,16 +240,217 @@
 
 
 
+//======================================================
+//lacos
+
+
+
+//11
+
+
+
+//while
+
+let numeros1 = [11, 15, 18, 14, 12, 13]
+
+let i = 0
+let maiorNumero = numeros1[0]
+
+while( i < numeros1.length){
+    if(numeros1[i]> maiorNumero){
+        maiorNumero = numeros1[i]
+    }
+    i++
+}
+// console.log(`O maior número é: ${maiorNumero}.`);
+
+
+
+//for 
+
+let numeros2 = [11, 15, 18, 14, 12, 13]
+let maiorNumero2 = numeros2[0]
+
+for(let i = 0; i< numeros2.length; i++){
+    if( numeros2[i] > maiorNumero2){
+        maiorNumero2 = numeros2[i]
+    }
+}
+// console.log(`O maior número é: ${maiorNumero2}.`);
 
 
 
 
+//for of
+
+let numeros3 = [11, 15, 18, 14, 12, 13, 309]
+let maiorNumero3 = numeros3[0]
+
+for(let i of numeros3){
+    if(i > maiorNumero3){
+        maiorNumero3 = i
+    }
+}
+// console.log(`O maior número é: ${maiorNumero3}.`);
+
+
+
+//12
+
+
+const prof = {
+    nome: `Leticia Chijo`,
+    idade: 27,
+    aulasFront: true,
+    aulasBack: false,
+    jogosFavoritos: [`opcao1`, `opcao2`, `opcao3`],
+    // contaPiada: () => console.log(`É pave ou pacume?`),
+
+    //acrescentei o return
+    contaPiada: () => {return `É pave ou pacume?`},
+
+
+    pet: {
+        nome: `Polly`,
+        especie: `cachorrinha`, 
+        raca: `pitbull`,
+        comidasFavoritas: [`biscoito`, `maçã`, `frango`]
+    }
+}
+
+//forma1 de fazer a funcao
+
+// let aulasBack = prof.aulasBack
+// let aulasFront = prof.aulasFront
+
+// if(aulasBack){
+//     aulasBack = `Dou`
+// }else{
+//     aulasBack = `Não dou`
+// }
+
+
+// if(aulasFront){
+//     aulasFront = `Dou`
+// }else{
+//     aulasFront = `Não dou`
+// }
+
+
+
+//forma2 de fazer a funcao
+
+const verifica = (aula) => {
+    if(aula){
+        return `Dou`
+    }else{
+        return `Não dou`
+    }
+}
+let aulasBack = verifica(prof.aulasBack)
+let aulasFront = verifica(prof.aulasFront)
+
+
+//outra questao
+
+const jogos = []
+
+for( let i = 0; i<prof.jogosFavoritos.length; i++){
+    jogos.push (`${i+1} ${prof.jogosFavoritos[i]}\n`)
+}
+// console.log(jogos);
+
+//----------------------
+
+
+// console.log(`Oi! Eu me chamo ${prof.nome} e tenho ${prof.idade} anos.\n
+// ${aulasFront} aula de front e ${aulasBack} aula de back.\n
+
+// Meus jogos favoritos são:\n
+
+// ${jogos.join(`\n`)}
+
+// Tenho uma ${prof.pet.especie} chamada ${prof.pet.nome} que gosta de comer ${prof.pet.comidasFavoritas[1]}.`);
+
+// console.log(`Uma piada para vocês já que estão insistindo muito. ${prof.contaPiada()}`);
+
+
+
+//======================================================
+//map() && filter()
+
+
+
+//13
+
+const pokemons = [
+    {nome: `Bulbasaur`, tipo: `grama`},
+    {nome: `Bellsprout`, tipo: `grama`},
+    {nome: `Charmander`, tipo: `fogo`},
+    {nome: `Vulpix`, tipo: `fogo`},
+    {nome: `Squirtle`, tipo: `água`},
+    {nome: `Psyduck`, tipo: `água`},
+]
+
+const nomeDosPokemons = pokemons.map((pokemon, indice, array) => {
+    return pokemon.nome
+})
+
+const apenasPokemonsDeGrama = pokemons.filter((pokemon, indice, array) => {
+    return pokemon.tipo === `grama`
+})
+
+
+// console.log(nomeDosPokemons);
+// console.log(apenasPokemonsDeGrama);
 
 
 
 
+//Questao de hoje
+
+const produtos = [
+    { nome: `Alface Lavada`, categoria: `Hortifruti`, preco: 2.5},
+    { nome: `Guaraná 2L`, categoria: `Bebidas`, preco: 7.8},
+    { nome: `Veja multiuso`, categoria: `Limpeza`, preco: 5.7},
+    { nome: `Banana`, categoria: `Hortifruti`, preco: 3.5},
+    { nome: `Guaravita`, categoria: `Bebidas`, preco: 4},
+    { nome: `Cloro 2L`, categoria: `Limpeza`, preco: 6.5}
+
+]
+
+
+//01
+//retorne um novo array com todos os produtos porém com 10% de desconto no preço
+const questaoUm = produtos.map((desconto) => {
+    return { ...desconto, preco: (desconto.preco - ( desconto.preco * 0.1))}
+ }
+)
+// console.log(questaoUm);
 
 
 
 
+//02
+//retorne um novo array apenas com os itens da categoria hortifruti
+const questaoDois = produtos.filter((horti) => {
+    return horti.categoria === `Hortifruti`
+ }
+)
+// console.log(questaoDois);
 
+
+
+
+//03
+//retorne um array apenas com os itens de hortifruti e com 10% de desconto no preço
+
+
+
+
+const questaoQuatro = produtos.filter((horti) => {
+    return horti.categoria === `Hortifruti` 
+}).map((horti) => {
+    return { ...horti, preco: (horti.preco - (horti.preco * 0.1))}
+})
+// console.log(questaoQuatro);
