@@ -576,14 +576,13 @@ const login = (senhaArmazenada) => {
     usuarios.map((mudando) => { mudando.imunizacao = `incompleta`; return mudando})
 
     const primeiraDose = (nomeUsuario, vacinaQueTomou, imunizacaoTotal) => {
-    
         const dataAtual = new Date();
-
+  
         if(vacinaQueTomou === `Coronavac`){
             
             let tempo = 28
-            const data = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), dataAtual.getDate() + tempo).toLocaleDateString()
-            return ` Olá ${nomeUsuario}! A próxima dose 
+            const data = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), dataAtual.getDate() + tempo).toLocaleDateString();
+            return  `Olá ${nomeUsuario}! A próxima dose 
     da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
     Compareça no posto na data ${data}. A sua imunização se encontra ${imunizacaoTotal}`
     
@@ -591,16 +590,16 @@ const login = (senhaArmazenada) => {
             // usuarios.map((mudando) => { mudando.imunizacao = `incompleta`; return mudando})
             
             let tempo = 90
-            const data = new Date( dataAtual.getFullYear(), dataAtual.getMonth(), dataAtual.getDate() + tempo).toLocaleDateString()
-            return ` Olá ${nomeUsuario}! A próxima dose 
+            const data = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), dataAtual.getDate() + tempo).toLocaleDateString();
+            return  `Olá ${nomeUsuario}! A próxima dose 
     da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
     Compareça no posto na data ${data}.  A sua imunização se encontra ${imunizacaoTotal}` 
     
         }else if(vacinaQueTomou === `Pfizer`){
             
             let tempo = 90
-            const data = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), dataAtual.getDate() + tempo).toLocaleDateString()
-            return ` Olá ${nomeUsuario}! A próxima dose 
+            const data = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), dataAtual.getDate() + tempo).toLocaleDateString();
+            return  `Olá ${nomeUsuario}! A próxima dose 
     da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
     Compareça no posto na data ${data}.  A sua imunização se encontra ${imunizacaoTotal}` 
     
