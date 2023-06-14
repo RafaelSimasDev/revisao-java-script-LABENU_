@@ -573,47 +573,49 @@ const login = (senhaArmazenada) => {
 //===================================================================
 
 
-    usuarios.map((mudando) => { mudando.imunizacao = `incompleta`; return mudando})
+usuarios.map((mudando) => { mudando.imunizacao = `incompleta`; return mudando})
 
-    const primeiraDose = (nomeUsuario, vacinaQueTomou, imunizacaoTotal) => {
-    
-        if(vacinaQueTomou === `Coronavac`){
-            let dataFixa = 1
-            let tempo = 28
-            let data = `${dataFixa + tempo}/04/2023`
-            return `Data de hoje: 01/04/2023.\n Olá ${nomeUsuario}! A próxima dose 
-    da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
-    Compareça no posto na data ${data}. A sua imunização se encontra ${imunizacaoTotal}`
-    
-        } else if(vacinaQueTomou === `Astrazenica`){
-            // usuarios.map((mudando) => { mudando.imunizacao = `incompleta`; return mudando})
-            let dataFixa = 1
-            let tempo = 90
-            let data = `${Math.floor((dataFixa + tempo) / 3)}/07/2023`
-            return `Data de hoje: 01/04/2023.\n Olá ${nomeUsuario}! A próxima dose 
-    da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
-    Compareça no posto na data ${data}.  A sua imunização se encontra ${imunizacaoTotal}` 
-    
-        }else if(vacinaQueTomou === `Pfizer`){
-            let dataFixa = 1
-            let tempo = 90
-            let data = `${Math.floor((dataFixa + tempo) / 3)}/07/2023`
-            return `Data de hoje: 01/04/2023.\n Olá ${nomeUsuario}! A próxima dose 
-    da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
-    Compareça no posto na data ${data}.  A sua imunização se encontra ${imunizacaoTotal}` 
-    
-        } else{ 
-            //criei essa condicao para simular uma pessoa que digite o nome ou a vacina de forma incorreta.
-            return `Infelizente não identificamos seu cadastro ${nomeUsuario} ou sua vacina ${vacinaQueTomou} no nosso sistema de cadastro`
-    
-        }
+const primeiraDose = (nomeUsuario, vacinaQueTomou, imunizacaoTotal) => {
+
+    const dataAtual = new Date();
+
+    if(vacinaQueTomou === `Coronavac`){
         
-    
-    
+        let tempo = 28
+        const data = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), dataAtual.getDate() + tempo).toLocaleDateString()
+        return ` Olá ${nomeUsuario}! A próxima dose 
+da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
+Compareça no posto na data ${data}. A sua imunização se encontra ${imunizacaoTotal}`
+
+    } else if(vacinaQueTomou === `Astrazenica`){
+        // usuarios.map((mudando) => { mudando.imunizacao = `incompleta`; return mudando})
+        
+        let tempo = 90
+        const data = new Date( dataAtual.getFullYear(), dataAtual.getMonth(), dataAtual.getDate() + tempo).toLocaleDateString()
+        return ` Olá ${nomeUsuario}! A próxima dose 
+da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
+Compareça no posto na data ${data}.  A sua imunização se encontra ${imunizacaoTotal}` 
+
+    }else if(vacinaQueTomou === `Pfizer`){
+        
+        let tempo = 90
+        const data = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), dataAtual.getDate() + tempo).toLocaleDateString()
+        return ` Olá ${nomeUsuario}! A próxima dose 
+da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
+Compareça no posto na data ${data}.  A sua imunização se encontra ${imunizacaoTotal}` 
+
+    } else{ 
+        //criei essa condicao para simular uma pessoa que digite o nome ou a vacina de forma incorreta.
+        return `Infelizente não identificamos seu cadastro ${nomeUsuario} ou sua vacina ${vacinaQueTomou} no nosso sistema de cadastro`
+
     }
-    // console.log(primeiraDose(usuarios[0].nome, usuarios[0].vacina, usuarios[0].imunizacao))
-    // console.log(primeiraDose(usuarios[1].nome, usuarios[1].vacina, usuarios[1].imunizacao))
-    // console.log(primeiraDose(usuarios[2].nome, usuarios[2].vacina, usuarios[2].imunizacao))
+    
+
+
+}
+console.log(primeiraDose(usuarios[0].nome, usuarios[0].vacina, usuarios[0].imunizacao))
+console.log(primeiraDose(usuarios[1].nome, usuarios[1].vacina, usuarios[1].imunizacao))
+console.log(primeiraDose(usuarios[2].nome, usuarios[2].vacina, usuarios[2].imunizacao))
 
 
 
@@ -679,8 +681,8 @@ const avisoAosAtrasados = (facilitando) => {
         }
       
 }
-console.log(avisoAosAtrasados(usuarios[0]));
-console.log(avisoAosAtrasados(usuarios[1]));
-console.log(avisoAosAtrasados(usuarios[2]));
+// console.log(avisoAosAtrasados(usuarios[0]));
+// console.log(avisoAosAtrasados(usuarios[1]));
+// console.log(avisoAosAtrasados(usuarios[2]));
 
 // console.log(avisoAosAtrasados())
