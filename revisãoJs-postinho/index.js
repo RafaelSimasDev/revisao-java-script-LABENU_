@@ -226,52 +226,43 @@ function verificaSeEMaior(a, b) {
 // Exercício 5----------------------------------------------------------------------------------------------------
 
 
+
+//Escreva uma função que receba do usuário seu nome, e o nome da vacina que tomou. 
+//E retorne a mensagens a seguir dependendo da vacina tomada.   
+
+// Sabendo que as vacinas tem tempos diferentes  para a aplicação da segunda dose crie uma única variável ‘tempo” que mude seu valor dependendo da vacina informada pelo usuário, faça o mesmo com “data”.
+
 // - Coronavac = 28 dias
 // - Astrazenica = 90 dias
 // - Pfizer = 90 dias
 
-// let nomeUsuarioDeFora = `Yasmim`
-// let nomeDaVacina1 = `Coronavac`
-// let nomeDaVacina2 = `Astrazenica`
-// let nomeDaVacina3 = `Pfizer`
+let vacina1 = `Coronavac`
+let vacina2 = `Astrazenica`
+let vacina3 = `Pfizer`
 
 
-// const primeiraDose = (nomeUsuario, vacinaQueTomou) => {
-    
-//     if(vacinaQueTomou === `Coronavac`){
-//         let dataFixa = 1
-//         let tempo = 28
-//         let data = `${dataFixa + tempo} / 04 /2023`
-//         return `Data de hoje: 01/04/2023.\n Olá ${nomeUsuario}! A próxima dose 
-// da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
-// Compareça no posto na data ${data}.`
+let tempo1 = 28
+let tempo2 = 90
+let tempo3 = 90
 
-//     } else if(vacinaQueTomou === `Astrazenica`){
-//         let dataFixa = 1
-//         let tempo = 90
-//         let data = `${Math.floor((dataFixa + tempo) / 3)}/07/2023`
-//         return `Data de hoje: 01/04/2023.\n Olá ${nomeUsuario}! A próxima dose 
-// da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
-// Compareça no posto na data ${data}.` 
-
-//     }else if(vacinaQueTomou === `Pfizer`){
-//         let dataFixa = 1
-//         let tempo = 90
-//         let data = `${Math.floor((dataFixa + tempo) / 3)}/07/2023`
-//         return `Data de hoje: 01/04/2023.\n Olá ${nomeUsuario}! A próxima dose 
-// da ${vacinaQueTomou} é daqui a ${tempo} dias.\n 
-// Compareça no posto na data ${data}.` 
-
-//     } else{ 
-//         //criei essa condicao para simular uma pessoa que digite o nome ou a vacina de forma incorreta.
-//         return `Infelizente não identificamos seu nome ${nomeUsuario} ou sua vacina ${vacinaQueTomou} no nosso sistema de cadastro`
-
-//     }
-    
+let nome = `Rafael`
 
 
-// }
-// console.log(primeiraDose(nomeUsuarioDeFora, nomeDaVacina3))
+const primeiraDose = (nomeUsuario, vacinaQueTomou) => {
+    let data = new Date()           
+    let dataProximaDose = new Date(data.setDate(data.getDate() + (vacinaQueTomou === vacina1 ? tempo1 : vacinaQueTomou === vacina2 ? tempo2 : tempo3)))
+
+    if(vacinaQueTomou === vacina1){
+        return `Olá ${nomeUsuario}! A próxima dose da ${vacinaQueTomou} é daqui a ${tempo1} dias. Compareça no posto na data ${dataProximaDose.toLocaleDateString("pt-BR")}.`
+    }else if(vacinaQueTomou === vacina2){
+        return `Olá ${nomeUsuario}! A próxima dose da ${vacinaQueTomou} é daqui a ${tempo2} dias. Compareça no posto na data ${dataProximaDose.toLocaleDateString("pt-BR")}.`
+    }else if(vacinaQueTomou === vacina3){
+        return `Olá ${nomeUsuario}! A próxima dose da ${vacinaQueTomou} é daqui a ${tempo3} dias. Compareça no posto na data ${dataProximaDose.toLocaleDateString("pt-BR")}.`
+    }else{
+        return `Não encontramos seus dados no sistema.`
+    }
+}
+// console.log(primeiraDose(nome, vacina2))
 
 
 
